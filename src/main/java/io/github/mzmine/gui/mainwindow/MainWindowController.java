@@ -969,7 +969,9 @@ public class MainWindowController {
     ColorPicker picker = new ColorPicker(rows.get(0).getColor());
 
     BooleanProperty apply = new SimpleBooleanProperty(false);
-
+//Boolean for ok button below
+    BooleanProperty ok = new SimpleBooleanProperty(false);
+    
     box.setAlignment(Pos.CENTER);
     box.setPadding(new Insets(10, 10, 10, 10));
 
@@ -980,13 +982,28 @@ public class MainWindowController {
 
     Button btnApply = new Button("Apply");
     Button btnCancel = new Button("Cancel");
+    //The code starts by creating a new button with the name "Ok"
+    Button btnOk = new Button("Ok");
+    
     btnApply.setOnAction(e -> {
       apply.set(true);
       popup.hide();
     });
+    
+    // Next, it sets up an event handler for when the user clicks on one of these buttons.
+    //When this happens, it will set apply to true and hide popup.
+    //Then, when they click on Ok, it will set ok to true and hide popup again.
+    btnOk.setOnAction(e -> {
+      ok.set(true);
+      popup.hide();
+    });
+    
     btnCancel.setOnAction(e -> popup.hide());
     ButtonBar.setButtonData(btnApply, ButtonData.APPLY);
     ButtonBar.setButtonData(btnCancel, ButtonData.CANCEL_CLOSE);
+    //Here, The ok button will be added to the end of the list.
+    ButtonBar.setButtonData(btnOk, ButtonData.OK_DONE);
+    
     ButtonBar btnBar = new ButtonBar();
     btnBar.getButtons().addAll(btnApply, btnCancel);
 

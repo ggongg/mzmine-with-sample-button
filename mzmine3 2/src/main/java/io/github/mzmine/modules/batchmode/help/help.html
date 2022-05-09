@@ -1,0 +1,52 @@
+<!--
+  ~ Copyright 2006-2021 The MZmine Development Team
+  ~
+  ~ This file is part of MZmine.
+  ~
+  ~ MZmine is free software; you can redistribute it and/or modify it under the terms of the GNU
+  ~ General Public License as published by the Free Software Foundation; either version 2 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ MZmine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+  ~ the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with MZmine; if not,
+  ~ write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+  ~
+  -->
+
+<html>
+<head>
+    <title>Batch mode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/net/sf/mzmine/desktop/impl/helpsystem/HelpStyles.css">
+</head>
+
+<body>
+
+<h1>Batch mode</h1>
+
+<h2>Description</h2>
+
+<p>
+    MZmine has the ability to run multiple data processing methods in batch mode. The following figure shows the
+    "Batch mode setup" dialog, where the user can setup a queue of batch steps. When a new step is added to the queue
+    its parameter setup dialog is shown. The "Configure" button allows the user to modify a step's parameter settings.
+    The "Remove" button deletes a step from the queue, and the "Clear" button removes all steps. The "Load..." and
+    "Save..." buttons make it possible to read and write batch steps to XML files.
+</p>
+
+<p>
+    <img src="batchmode_set.png">
+</p>
+
+<p>
+    The first step of a batch queue is performed on those raw data files and/or peak lists selected by the user. The
+    remaining steps are performed on the results produced by each preceding step. For example, if the first step of the
+    batch queue is Chromatogram builder, it will produce peak lists as a result. If the following step were Peak list
+    deconvolution then it will be performed on the peak lists produced by the preceding Chromatogram builder step.
+</p>
+
+</body>
+</html>
